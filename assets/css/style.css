@@ -3,20 +3,32 @@
     font-family: saiyan_sans;
     src: url(../fonts/saiyan_sans/Saiyan-Sans.ttf);
   }
-  
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
 body {
     font-family: saiyan_sans;
     background-color: orange;
+    text-align: center;
 }
 
 h1 {
     font-size: 3rem;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    color: blue;
 }
 
-.content {
+h2 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.header {
     text-align: center;
+
 }
 
 .dragon {
@@ -27,4 +39,42 @@ h1 {
 .ball-z {
     color: red;
     font-size: 5rem;
+    word-spacing: -2rem;
+}
+
+.content {
+    /* background-color: black; */
+    height: auto;
+    margin: auto;
+    padding: 4rem 0 0 0;
+}
+
+.doubleLineHeight {
+    line-height: 200%;
+}
+
+.textColorBlue {
+    color: blue;
+}
+
+.blackTextBorder {
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+.smSquareImage {
+    height: 150px;
+    width: 150px;
+}
+
+.dragonBall-images {
+    margin: 6rem auto auto auto;
+}
+
+.myWord li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 1.5rem;
 }
