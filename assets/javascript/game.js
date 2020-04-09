@@ -51,15 +51,20 @@ document.addEventListener('keypress', (event) => {
         console.log(wrongGuesses);
         document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
         
+        // makes dragon ball images disappear when wrong answer is guessed
         for ( let i=0; i < dragonBallImages.length; i ++) {
             dragonBallImages[i].classList.add("opacityZero");
-
+            break;
+            
+            
+          
         }
     };
     //when the player guesses the whole word correctly
     if (blank.join('') === randomWord.toLowerCase()) {
         console.log("You Win!")
         wins = wins + 1;
+        document.getElementById('wins').innerHTML = wins;
         console.log(wins);
         // output the correct answer with first letter capitalized
         console.log(blank.join('').charAt(0).toUpperCase() + blank.slice(1).join(''));

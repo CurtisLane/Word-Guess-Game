@@ -46,7 +46,7 @@ p {
     /* background-color: black; */
     height: auto;
     margin: auto;
-    padding: 4rem 0 0 0;
+    padding: 3rem 0 0 0;
 }
 
 .doubleLineHeight {
@@ -58,7 +58,7 @@ p {
 }
 
 .blackTextBorder {
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    text-shadow: -2px 0 black, 4px 2px black, 4px -2px black, 0 -2px black;
 }
 
 .smSquareImage {
