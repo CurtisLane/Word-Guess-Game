@@ -1,15 +1,25 @@
+// Variables----------
+
 // array of words to guess
 const words = ["Piccolo", "Gohan", "Goku", "Bulma","Vegeta", "Trunks", "Goten", "Krillin", "Tien", "Yamcha"]
 // word chosen at random
 let randomNumber = Math.floor(Math.random() * words.length);
 let randomWord = words[randomNumber];
+console.log(randomWord);
 
 // blank underscore to be filled by correct letters and wrong guesses
 let blank = [];
 let wrongGuesses = [];
 let wins = 0;
 
-console.log(randomWord);
+// DOM manipulations----------
+let myWord = document.getElementById('myWord');
+
+
+
+
+// Functions----------
+
 // make underscore for each letter of randomWord in index.html
 let underscores = function()  {
     
@@ -19,8 +29,9 @@ let underscores = function()  {
     }
     return blank;
 }
-// console.log(underscores());
-underscores();
+
+// event listener----------
+
 // listen for keypress
 document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
@@ -31,6 +42,7 @@ document.addEventListener('keypress', (event) => {
         if (keyLetter.toLowerCase() === randomWord.toLowerCase().charAt(i)) {
             blank.splice(i, 1,  keyLetter);
             console.log(blank);
+            document.getElementById('myWord').innerHTML = blank.join(' ');
         } 
     //tried to make else statement for incorrect answers but then several of the same letter got pushed to wrongGuesses
     };
@@ -38,6 +50,8 @@ document.addEventListener('keypress', (event) => {
     if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
         wrongGuesses.push(keyLetter);
         console.log(wrongGuesses)
+        document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
+
     };
     //when the player guesses the whole word correctly
     if (blank.join('') === randomWord.toLowerCase()) {
@@ -49,6 +63,9 @@ document.addEventListener('keypress', (event) => {
     }
 });
 
+// function call----------
 
+underscores()
+document.getElementById('myWord').innerHTML = blank.join(' ');
 
 
