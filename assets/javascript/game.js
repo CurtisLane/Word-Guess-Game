@@ -37,6 +37,7 @@ document.addEventListener('keypress', (event) => {
         wrongGuesses.push(keyLetter);
         console.log(wrongGuesses)
     };
+    //when the player guesses the whole word correctly
     if (blank.join('') === randomWord.toLowerCase()) {
         console.log("You Win!")
         wins = wins + 1;
