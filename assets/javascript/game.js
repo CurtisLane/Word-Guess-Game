@@ -44,7 +44,8 @@ document.addEventListener('keypress', (event) => {
         console.log("You Win!")
         wins = wins + 1;
         console.log(wins);
-
+        // output the correct answer with first letter capitalized
+        console.log(blank.join('').charAt(0).toUpperCase() + blank.slice(1).join(''));
     }
 });
 
