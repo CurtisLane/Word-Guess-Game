@@ -12,6 +12,8 @@ let wins = 0;
 console.log(randomWord);
 // make underscore for each letter of randomWord in index.html
 let underscores = function()  {
+    
+    
     for(let i = 0; i < randomWord.length; i++) {
         blank.push('_');
     }
