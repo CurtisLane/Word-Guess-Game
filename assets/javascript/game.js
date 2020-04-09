@@ -12,9 +12,8 @@ let blank = [];
 let wrongGuesses = [];
 let wins = 0;
 
-// DOM manipulations----------
-let myWord = document.getElementById('myWord');
-
+// dragon ball images array
+let dragonBallImages = [document.getElementById('oneStarBall'), document.getElementById('twoStarBall'), document.getElementById('threeStarBall'), document.getElementById('fourStarBall'), document.getElementById('fiveStarBall'), document.getElementById('sixStarBall'), document.getElementById('sevenStarBall'), ]; 
 
 
 
@@ -37,7 +36,7 @@ document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
     let keyLetter = String.fromCharCode(keyNumber);
     // if letter matches, put letter into blank array
-    for (i=0; i<randomWord.length; i++){
+    for (let i=0; i<randomWord.length; i++){
         // check for correct answers, replace underscore with correct letter
         if (keyLetter.toLowerCase() === randomWord.toLowerCase().charAt(i)) {
             blank.splice(i, 1,  keyLetter);
@@ -49,9 +48,13 @@ document.addEventListener('keypress', (event) => {
     // check for incorrect answers using indexOf which === -1 when no matches are found
     if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
         wrongGuesses.push(keyLetter);
-        console.log(wrongGuesses)
+        console.log(wrongGuesses);
         document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
+        
+        for ( let i=0; i < dragonBallImages.length; i ++) {
+            dragonBallImages[i].classList.add("opacityZero");
 
+        }
     };
     //when the player guesses the whole word correctly
     if (blank.join('') === randomWord.toLowerCase()) {

@@ -70,4 +70,6 @@ p {
     margin: 6rem auto auto auto;
 }
 
-
+.opacityZero {
+    opacity: 0;
+}
