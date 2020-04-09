@@ -20,9 +20,12 @@ document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
     let keyLetter = String.fromCharCode(keyNumber);
     console.log(keyLetter)
-    if (keyLetter === randomWord.charAt(0)) {
-        blank.splice(0, 0, keyLetter);
-        console.log(blank);
+    // if letter matches, put letter into blank array
+    for (i=0; i<randomWord.length; i++){
+        if (keyLetter.toLocaleLowerCase() === randomWord.toLowerCase().charAt(i)) {
+            blank.splice(i, 1,  keyLetter);
+            console.log(blank);
+        };
     };
 
 });
