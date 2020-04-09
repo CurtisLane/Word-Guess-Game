@@ -48,8 +48,3 @@ document.addEventListener('keypress', (event) => {
 
 
 
-
-// I did a thing! Woo my first javascript!!!
-document.addEventListener("keypress", function(){
-  document.getElementById("firstLetter").innerHTML = "P";
-});
