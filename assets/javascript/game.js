@@ -5,6 +5,8 @@ let randomNumber = Math.floor(Math.random() * words.length);
 let randomWord = words[randomNumber];
 // blank underscore
 let blank = [];
+let wrongGuesses = [];
+
 console.log(randomWord);
 // make underscore for each letter of randomWord in index.html
 let underscores = function()  {
@@ -19,13 +21,18 @@ console.log(underscores());
 document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
     let keyLetter = String.fromCharCode(keyNumber);
-    console.log(keyLetter)
     // if letter matches, put letter into blank array
     for (i=0; i<randomWord.length; i++){
-        if (keyLetter.toLocaleLowerCase() === randomWord.toLowerCase().charAt(i)) {
+        // check for correct answers
+        if (keyLetter.toLowerCase() === randomWord.toLowerCase().charAt(i)) {
             blank.splice(i, 1,  keyLetter);
             console.log(blank);
-        };
+        } 
+    };
+    // check for incorrect answers
+    if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
+        wrongGuesses.push(keyLetter);
+        console.log(wrongGuesses)
     };
 
 });
