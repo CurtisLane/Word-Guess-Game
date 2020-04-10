@@ -33,20 +33,23 @@ p {
 
 .dragon {
     color: yellow;
-    font-size: 5.5rem;
+    font-size: 5rem;
+    display: inline-block;
+    margin-right: -.5rem;
 }
 
 .ball-z {
     color: red;
     font-size: 5rem;
     word-spacing: -2rem;
+    display: inline-block;
+    margin-left: -.5rem;
 }
 
 .content {
-    /* background-color: black; */
+    width: 100%;
     height: auto;
     margin: auto;
-    padding: 3rem 0 0 0;
 }
 
 .doubleLineHeight {
@@ -67,7 +70,7 @@ p {
 }
 
 .dragonBall-images {
-    margin: 6rem auto auto auto;
+    margin: 1.5rem auto auto auto;
 }
 
 .opacityZero {
