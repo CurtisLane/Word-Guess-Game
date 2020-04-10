@@ -82,13 +82,15 @@ document.addEventListener('keypress', (event) => {
 
     //the player wins after guessing all the correct letters and gets a message then it resets
     if (blank.join('') === randomWord.toLowerCase()) {
-        console.log("You Win!")
+        
         // keeps track of wins
         wins = wins + 1;
+        
         // updates wins number displayed and shows a message
         document.getElementById('wins').innerHTML = wins;
         document.getElementById('message').innerHTML = "Nice work, you've recovered the Dragon Balls. Can you guess this next one?"
-        // resets the dragon ball images to full opacity
+        
+        // resets the dragon ball images to full opacity after winning
         for (i=0; i<dragonBallImages.length; i++) {
             dragonBallImages[i].classList.remove("opacityZero");
         }
@@ -102,10 +104,9 @@ document.addEventListener('keypress', (event) => {
         // document.getElementById('myWord').innerHTML = '';
         document.getElementById('myWord').innerHTML = blank.join(' ');
 
-        console.log(randomWord);
-        // output the correct answer with first letter capitalized
-        // console.log(blank.join('').charAt(0).toUpperCase() + blank.slice().join(''));
-        
+        // gives answer in the console
+        // console.log(randomWord);
+
     
     
     }
@@ -122,4 +123,12 @@ document.addEventListener('keypress', (event) => {
 underscores(blank);
 document.getElementById('myWord').innerHTML = blank.join(' ');
 
+// event listener for touch on cell phone to bring up keyboard
+// document.addEventListener("touchstart", touchHandler);
 
+function ifTouch(event) {
+    var x = event.touches;
+    if (x) {
+        alert("touch detected")
+    }
+}
