@@ -40,12 +40,16 @@ let underscores = function()  {
     return blank;
 }
 
-// event listener----------
+// event listener--------------------
 
 // listen for keypress
 document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
     let keyLetter = String.fromCharCode(keyNumber);
+    
+    // remove message 
+    document.getElementById('message').innerHTML = "";
+
     // if letter matches, put letter into blank array
     for (let i=0; i<randomWord.length; i++){
         // check for correct answers, replace underscore with correct letter
@@ -54,7 +58,6 @@ document.addEventListener('keypress', (event) => {
             console.log(blank);
             document.getElementById('myWord').innerHTML = blank.join(' ');
         } 
-    //tried to make else statement for incorrect answers but then several of the same letter got pushed to wrongGuesses
     };
     // check for incorrect answers using indexOf which === -1 when no matches are found
     if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
@@ -63,16 +66,20 @@ document.addEventListener('keypress', (event) => {
         document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
         
         // makes dragon ball images disappear when wrong answer is guessed
-        
-            
-        
         for ( let i=0; i < wrongGuesses.length ; i++ ) {
-            dragonBallImages[i].classList.add("opacityZero");
-            
-            
-          
+            dragonBallImages[i].classList.add("opacityZero");          
         }
+
+        // make keypress only work for one wrong guess
+        console.log(wrongGuesses.includes(keyLetter));
+        console.log(wrongGuesses.indexOf(keyLetter));
+
+        if (wrongGuesses.includes(keyLetter) === true) {
+            console.log('there is no spoon')
+        }
+
     };
+
     //the player wins after guessing all the correct letters and gets a message then it resets
     if (blank.join('') === randomWord.toLowerCase()) {
         console.log("You Win!")
@@ -86,15 +93,17 @@ document.addEventListener('keypress', (event) => {
             dragonBallImages[i].classList.remove("opacityZero");
         }
         
+        // generates a new random word and reloads blank underscores, reset wrongGuesses array to empty
         randomWord = random_word(words);
-        // console.log(randomWord);
-
+        wrongGuesses = [];
+        blank = [];
         underscores(blank);
+        // document.getElementById('myWord').innerHTML = '';
         document.getElementById('myWord').innerHTML = blank.join(' ');
 
-        
+        console.log(randomWord);
         // output the correct answer with first letter capitalized
-        console.log(blank.join('').charAt(0).toUpperCase() + blank.slice().join(''));
+        // console.log(blank.join('').charAt(0).toUpperCase() + blank.slice().join(''));
         
     
     
