@@ -96,6 +96,7 @@ document.addEventListener('keypress', (event) => {
         // generates a new random word and reloads blank underscores, reset wrongGuesses array to empty
         randomWord = random_word(words);
         wrongGuesses = [];
+        document.getElementById('wrongGuess').innerHTML = ''
         blank = [];
         underscores(blank);
         // document.getElementById('myWord').innerHTML = '';
@@ -111,6 +112,7 @@ document.addEventListener('keypress', (event) => {
     // the player loses after 7 tries and gets a message
     if (wrongGuesses.join('').length === 7){
         document.getElementById('message').innerHTML = "You Lose! Frieza has the Dragon Balls and Krillin died again.."
+        
     }
 
 });

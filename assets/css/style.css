@@ -60,17 +60,22 @@ p {
     color: blue;
 }
 
+.textColorRed {
+    color: red;
+}
+
 .blackTextBorder {
     text-shadow: -2px 0 black, 4px 2px black, 4px -2px black, 0 -2px black;
 }
 
 .smSquareImage {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
 }
 
 .dragonBall-images {
-    margin: 1.5rem auto auto auto;
+    margin: auto;
+    width: 100%;
 }
 
 .opacityZero {
