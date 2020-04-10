@@ -3,8 +3,10 @@
 // array of words to guess
 const words = ["Piccolo", "Gohan", "Goku", "Bulma","Vegeta", "Trunks", "Goten", "Krillin", "Tien", "Yamcha"]
 // word chosen at random
-let randomNumber = Math.floor(Math.random() * words.length);
-let randomWord = words[randomNumber];
+let randomWord = random_word(words);
+
+// let randomNumber = Math.floor(Math.random() * words.length);
+// let randomWord = words[randomNumber];
 console.log(randomWord);
 
 // blank underscore to be filled by correct letters and wrong guesses
@@ -17,7 +19,16 @@ let dragonBallImages = [document.getElementById('oneStarBall'), document.getElem
 
 
 
+
 // Functions----------
+
+// trying this randomizer from w3schools
+function random_word(words)
+{
+  
+return words[Math.floor(Math.random()*words.length)];
+     
+}
 
 // make underscore for each letter of randomWord in index.html
 let underscores = function()  {
@@ -52,28 +63,52 @@ document.addEventListener('keypress', (event) => {
         document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
         
         // makes dragon ball images disappear when wrong answer is guessed
-        for ( let i=0; i < dragonBallImages.length; i ++) {
+        
+            
+        
+        for ( let i=0; i < wrongGuesses.length ; i++ ) {
             dragonBallImages[i].classList.add("opacityZero");
-            break;
             
             
           
         }
     };
-    //when the player guesses the whole word correctly
+    //the player wins after guessing all the correct letters and gets a message then it resets
     if (blank.join('') === randomWord.toLowerCase()) {
         console.log("You Win!")
+        // keeps track of wins
         wins = wins + 1;
+        // updates wins number displayed and shows a message
         document.getElementById('wins').innerHTML = wins;
-        console.log(wins);
+        document.getElementById('message').innerHTML = "Nice work, you've recovered the Dragon Balls. Can you guess this next one?"
+        // resets the dragon ball images to full opacity
+        for (i=0; i<dragonBallImages.length; i++) {
+            dragonBallImages[i].classList.remove("opacityZero");
+        }
+        
+        randomWord = random_word(words);
+        // console.log(randomWord);
+
+        underscores(blank);
+        document.getElementById('myWord').innerHTML = blank.join(' ');
+
+        
         // output the correct answer with first letter capitalized
-        console.log(blank.join('').charAt(0).toUpperCase() + blank.slice(1).join(''));
+        console.log(blank.join('').charAt(0).toUpperCase() + blank.slice().join(''));
+        
+    
+    
     }
+    // the player loses after 7 tries and gets a message
+    if (wrongGuesses.join('').length === 7){
+        document.getElementById('message').innerHTML = "You Lose! Frieza has the Dragon Balls and Krillin died again.."
+    }
+
 });
 
 // function call----------
 
-underscores()
+underscores(blank);
 document.getElementById('myWord').innerHTML = blank.join(' ');
 
 
