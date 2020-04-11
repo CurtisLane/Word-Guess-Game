@@ -45,7 +45,10 @@ let underscores = function()  {
 // listen for keypress
 document.addEventListener('keypress', (event) => {
     let keyNumber = event.keyCode;
+    console.log(keyNumber);
     let keyLetter = String.fromCharCode(keyNumber);
+
+    // validate input
     
     // remove message 
     document.getElementById('message').innerHTML = "";
@@ -59,6 +62,13 @@ document.addEventListener('keypress', (event) => {
             document.getElementById('myWord').innerHTML = blank.join(' ');
         } 
     };
+
+    console.log(keyLetter, wrongGuesses)
+    console.log(randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()))
+    if(wrongGuesses.join('').toLowerCase().indexOf(keyLetter.toLowerCase())>=0){
+        console.log("Already guesssed")
+    } else
+
     // check for incorrect answers using indexOf which === -1 when no matches are found
     if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
         wrongGuesses.push(keyLetter);
@@ -68,17 +78,10 @@ document.addEventListener('keypress', (event) => {
         // makes dragon ball images disappear when wrong answer is guessed
         for ( let i=0; i < wrongGuesses.length ; i++ ) {
             dragonBallImages[i].classList.add("opacityZero");          
-        }
+        } 
+    } 
 
-        // make keypress only work for one wrong guess
-        console.log(wrongGuesses.includes(keyLetter));
-        console.log(wrongGuesses.indexOf(keyLetter));
 
-        if (wrongGuesses.includes(keyLetter) === true) {
-            console.log('there is no spoon')
-        }
-
-    };
 
     //the player wins after guessing all the correct letters and gets a message then it resets
     if (blank.join('') === randomWord.toLowerCase()) {
