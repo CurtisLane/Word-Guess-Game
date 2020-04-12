@@ -28,9 +28,9 @@ let underscores = function()  {
 }
 
 // listen for user keypress
-document.addEventListener('keypress', (event) => {
+document.onkeyup = function(event) {
     let keyNumber = event.keyCode;
-    let keyLetter = String.fromCharCode(keyNumber);
+    let keyLetter = event.key;
 
     // remove message to user
     document.getElementById('message').innerHTML = "";
@@ -43,7 +43,7 @@ document.addEventListener('keypress', (event) => {
             blank.splice(i, 1,  keyLetter);
             console.log(blank);
             document.getElementById('myWord').innerHTML = blank.join(' ');
-        } 
+        }
     };
 
     // log user key pressed and wrong guesses array 
@@ -63,7 +63,11 @@ document.addEventListener('keypress', (event) => {
             
             // makes dragon ball images disappear when wrong answer is guessed
             for ( let i=0; i < wrongGuesses.length ; i++ ) {
-                dragonBallImages[i].classList.add("opacityZero");          
+                if (i >= dragonBallImages.length){
+                    event.preventDefault();
+                } else {
+                dragonBallImages[i].classList.add("opacityZero"); 
+                }
             } 
     } 
 
@@ -80,6 +84,7 @@ document.addEventListener('keypress', (event) => {
         // resets the dragon ball images to full opacity after winning
         for (i=0; i<dragonBallImages.length; i++) {
             dragonBallImages[i].classList.remove("opacityZero");
+            
         }
         
         // generates a new random word and reloads blank underscores, reset wrongGuesses array to empty
@@ -92,24 +97,27 @@ document.addEventListener('keypress', (event) => {
     }
 
     // the player loses after 7 tries, message to user pushed to HTML
-    if (wrongGuesses.join('').length === 7){
+    if (wrongGuesses.join('').length >= 7){
         
         // message to user
         document.getElementById('message').innerHTML = "You Lose! Frieza has the Dragon Balls and Krillin died again.. Press the spacebar to retry."
         
-        // press spacebar to reload page, copied from https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
+        // press spacebar to reload page after losing, copied from https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
         document.body.onkeyup = function(e){
             if(e.keyCode == 32){
                 location.reload();
+            } else {
+                e.preventDefault();
             }
         };
     };
 
-});
+};
 
-// function calls
-
+// function call
 underscores(blank);
+
+// set up blank underscores on HTML page based on random word length
 document.getElementById('myWord').innerHTML = blank.join(' ');
 
 
