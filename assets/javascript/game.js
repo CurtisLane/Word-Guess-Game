@@ -102,6 +102,8 @@ document.onkeyup = function(event) {
         // message to user
         document.getElementById('message').innerHTML = "You Lose! Frieza has the Dragon Balls and Krillin died again.. Press the spacebar to retry."
         
+        document.onkeyup = null;
+
         // press spacebar to reload page after losing, copied from https://stackoverflow.com/questions/24386354/execute-js-code-after-pressing-the-spacebar
         document.body.onkeyup = function(e){
             if(e.keyCode == 32){
@@ -119,5 +121,3 @@ underscores(blank);
 
 // set up blank underscores on HTML page based on random word length
 document.getElementById('myWord').innerHTML = blank.join(' ');
-
-
