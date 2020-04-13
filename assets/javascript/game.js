@@ -32,6 +32,8 @@ document.onkeyup = function(event) {
     let keyNumber = event.keyCode;
     let keyLetter = event.key;
 
+    if (keyNumber >= 65 && keyNumber <= 122) {
+
     // remove message to user
     document.getElementById('message').innerHTML = "";
 
@@ -113,7 +115,7 @@ document.onkeyup = function(event) {
             }
         };
     };
-
+    }
 };
 
 // function call
