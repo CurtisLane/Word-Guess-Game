@@ -1,8 +1,10 @@
-/* font downloaded from https://www.dafont.com/saiyan-sans.font */
+    /* -- font downloaded from https://www.dafont.com/saiyan-sans.font -- */
 @font-face {
     font-family: saiyan_sans;
     src: url(../fonts/saiyan_sans/Saiyan-Sans.ttf);
   }
+
+    /* -- Elements -- */
 
 html, body {
     width: 100%;
@@ -26,9 +28,10 @@ p {
     font-size: 1.5rem;
 }
 
+    /* -- Classes -- */
+
 .header {
     text-align: center;
-
 }
 
 .dragon {
@@ -36,6 +39,8 @@ p {
     font-size: 5rem;
     display: inline-block;
     margin-right: -.5rem;
+    margin-top: 3rem;
+
 }
 
 .ball-z {

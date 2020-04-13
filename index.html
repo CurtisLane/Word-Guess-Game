@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DBZ Word Guess</title>
+    
+    <!-- reset and custom stylesheet -->
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <!-- favicon downloaded from https://www.favicon.cc/?action=icon&file_id=357263 -->
     <link href="assets/favicon/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
 <body>
+    
+    <!-- Header contains the logo and title -->
     <header class="header blackTextBorder">
         <h1>
             <div class="dragon">
@@ -24,19 +29,15 @@
         </h1>
     </header>
 
-    <div class="content textColorBlue">
-
-
-        
-      
-        <h2 class="">Wins</h2>
+    <!-- Main Content -->
+    <div class="content textColorBlue">    
+        <h2>Wins</h2>
         <div class="numberOfWins">
             <h2 class="wins doubleLineHeight" id="wins">0</h2>
         </div>
-        <h2 class="">Current Word</h2>
+        <h2>Current Word</h2>
         <div class="currentWord">
             <h2 class="doubleLineHeight" id="myWord">
-
             </h2>
         </div>
         <h2 class="doubleLineHeight">Wrong Guesses</h2>
@@ -65,7 +66,7 @@
 
 
 
-
+    <!-- Custom JavaScript -->
     <script src="assets/javascript/game.js"></script>
 
 </body>
