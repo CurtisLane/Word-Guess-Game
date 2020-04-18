@@ -2,7 +2,7 @@
 A word guessing game similar to hangman built with JavaScript.
 
 Functions:
-  1. A random word is chosen when the page loads. Underscores appear on the page indicating the number of letters in the word.
+  1. A random word is chosen when the page loads. Underscores appear on the page indicating the number of letters in the word.(Answers given in the console.)
   2. Begin by pressing any letter on your keyboard to make a guess. The current message (in red) will disappear.
   3. When you guess correctly, your letter will replace one of the underscores below the "Current Word" heading.
   4. If you make an incorrect guess, the letter will appear below the "Wrong Guesses" header and a Dragon Ball will disappear!
