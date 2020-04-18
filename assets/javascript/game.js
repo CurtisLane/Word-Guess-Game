@@ -43,24 +43,17 @@ document.onkeyup = function(event) {
         // check for correct answers, replace underscore with correct letter
         if (keyLetter.toLowerCase() === randomWord.toLowerCase().charAt(i)) {
             blank.splice(i, 1,  keyLetter);
-            console.log(blank);
             document.getElementById('myWord').innerHTML = blank.join(' ');
         }
     };
 
-    // log user key pressed and wrong guesses array 
-    console.log(keyLetter, wrongGuesses)
-    console.log(randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()))
-
     //validate input to prevent duplicate wrong guesses
     if(wrongGuesses.join('').toLowerCase().indexOf(keyLetter.toLowerCase())>=0){
-        console.log("Already guesssed")
     } else //continue below
 
         // check for incorrect answers using indexOf which === -1 when no matches are found
         if (randomWord.toLowerCase().indexOf(keyLetter.toLowerCase()) === -1) {
             wrongGuesses.push(keyLetter);
-            console.log(wrongGuesses);
             document.getElementById('wrongGuess').innerHTML = wrongGuesses.join(' ');
             
             // makes dragon ball images disappear when wrong answer is guessed
@@ -79,6 +72,8 @@ document.onkeyup = function(event) {
         // keeps track of wins
         wins = wins + 1;
         
+                    // try wins++
+
         // updates wins number displayed and shows a message
         document.getElementById('wins').innerHTML = wins;
         document.getElementById('message').innerHTML = "Nice work, you've recovered the Dragon Balls. Can you guess this next one?"
@@ -91,6 +86,7 @@ document.onkeyup = function(event) {
         
         // generates a new random word and reloads blank underscores, reset wrongGuesses array to empty
         randomWord = random_word(words);
+        console.log(randomWord);
         wrongGuesses = [];
         document.getElementById('wrongGuess').innerHTML = ''
         blank = [];
@@ -101,6 +97,8 @@ document.onkeyup = function(event) {
     // the player loses after 7 tries, message to user pushed to HTML
     if (wrongGuesses.join('').length >= 7){
         
+                // ammend .join
+
         // message to user
         document.getElementById('message').innerHTML = "You Lose! Frieza has the Dragon Balls and Krillin died again.. Press the spacebar to retry."
         
