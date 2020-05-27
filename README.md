@@ -1,7 +1,7 @@
 # Word-Guess-Game
 A word guessing game similar to hangman built with JavaScript.
 
-### GitHub Page: [Word Guess Game](https://curtislane.github.io/Word-guess-game/)
+### GitHub Page: [Word Guess Game](https://curtislane.github.io/Word-Guess-Game/)
 
 ### Directories:
 * Root
