@@ -1,6 +1,20 @@
 # Word-Guess-Game
 A word guessing game similar to hangman built with JavaScript.
 
+### GitHub Page: [Word Guess Game](https://curtislane.github.io/Word-guess-game/)
+
+### Directories:
+* Root
+    * [index.html](./index.html)
+    * [assets](./assets)
+        * [css](./assets/css)
+        * [favicon](.assets/favicon)
+        * [font](./assets/font)
+        * [images](./assets/images)
+        * [javascript](./assets/javascript)
+
+![picture](assets/images/DBZgamePhoto-Front.jpg)
+
 Functions:
   1. A random word is chosen when the page loads. Underscores appear on the page indicating the number of letters in the word.(Answers given in the console.)
   2. Begin by pressing any letter on your keyboard to make a guess. The current message (in red) will disappear.
