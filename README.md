@@ -9,7 +9,7 @@ A word guessing game similar to hangman built with JavaScript.
     * [assets](./assets)
         * [css](./assets/css)
         * [favicon](.assets/favicon)
-        * [font](./assets/font)
+        * [font](./assets/fonts)
         * [images](./assets/images)
         * [javascript](./assets/javascript)
 
